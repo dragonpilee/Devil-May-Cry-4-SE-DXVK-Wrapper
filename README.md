@@ -14,7 +14,7 @@ This is a simple **batch script** that automates the process of wrapping any **D
 ## 💡 What It Does
 
 - Prompts for your game installation directory
-- Extracts DXVK from archive
+- Extracts **DXVK 2.6.1** from archive
 - Copies `d3d11.dll` and `dxgi.dll` to the game folder
 - (Optional) Creates a `dxvk.conf` file for HUD/logging
 - Lets you run older D3D games on modern Vulkan-based GPUs more stably
@@ -23,7 +23,7 @@ This is a simple **batch script** that automates the process of wrapping any **D
 
 ## 📦 Prerequisites
 
-- [DXVK Release `.tar.gz`](https://github.com/doitsujin/dxvk/releases) — place in the same folder as the script (e.g., `dxvk-2.3.tar.gz`)
+- [DXVK 2.6.1 Release `.tar.gz`](https://github.com/doitsujin/dxvk/releases/tag/v2.6.1) — place in the same folder as the script (file name: `dxvk-2.6.1.tar.gz`)
 - [7-Zip CLI](https://www.7-zip.org/) — must be installed or bundled (`7z.exe`)
 - Windows 10 or 11
 
@@ -31,8 +31,8 @@ This is a simple **batch script** that automates the process of wrapping any **D
 
 ## 🚀 How to Use
 
-1. **Download the script** (`dxvk_wrap.bat`) and the latest DXVK release.
-2. **Place `dxvk-<version>.tar.gz` in the same folder** as the script.
+1. **Download the script** (`dxvk_wrap.bat`) and `dxvk-2.6.1.tar.gz`.
+2. **Place `dxvk-2.6.1.tar.gz` in the same folder** as the script.
 3. **Run the script** by double-clicking `dxvk_wrap.bat`
 4. **Enter the path** to your game folder (where `DMC4SE.exe` is located)
 5. Done! Launch the game and enjoy Vulkan stability!
@@ -55,7 +55,7 @@ You can now launch the game using Vulkan.
 
 ## 📝 Notes
 
-- The script currently assumes you already have `dxvk-<version>.tar.gz` in the same directory.
+- The script currently assumes you already have `dxvk-2.6.1.tar.gz` in the same directory.
 - Auto-download from GitHub may be added in future versions.
 - Compatible with both **NVIDIA** and **AMD** GPUs.
 - Use this for other D3D10/11 games that crash or fail on modern systems!

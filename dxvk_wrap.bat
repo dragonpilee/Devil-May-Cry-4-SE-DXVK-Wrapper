@@ -1,38 +1,58 @@
 @echo off
-setlocal
+setlocal EnableDelayedExpansion
 
-:: Ask for game directory
-echo === DXVK Vulkan Wrapper ===
-set /p GAME_PATH="Enter the full path to the game folder (e.g. D:\Games\DMC4SE): "
+echo ==========================================
+echo       DXVK Vulkan Wrapper Installer
+echo ==========================================
 
-:: Optional: You can hardcode your DXVK ZIP path here if already downloaded
-set DXVK_ZIP=dxvk-2.3.tar.gz
-set DXVK_DIR=dxvk-2.3
-set TEMP_DIR=%TEMP%\dxvk_tmp
+:: Set the DXVK archive name
+set "DXVK_ARCHIVE=dxvk-2.6.1.tar.gz"
+set "DXVK_DIR=dxvk-2.6.1"
 
-:: Create temp folder
-if exist "%TEMP_DIR%" rd /s /q "%TEMP_DIR%"
-mkdir "%TEMP_DIR%"
+:: Check for 7z.exe
+if not exist "7z.exe" (
+    echo ❌ 7z.exe not found! Please make sure 7-Zip CLI is in this folder.
+    pause
+    exit /b
+)
 
-:: Extract DXVK ZIP (make sure 7z is installed or bundled)
-echo Extracting DXVK...
-7z x "%DXVK_ZIP%" -o"%TEMP_DIR%" >nul
-cd /d "%TEMP_DIR%\%DXVK_DIR%\x64"
+:: Check for DXVK archive
+if not exist "%DXVK_ARCHIVE%" (
+    echo ❌ %DXVK_ARCHIVE% not found!
+    echo Please download it from: https://github.com/doitsujin/dxvk/releases/tag/v2.6.1
+    pause
+    exit /b
+)
 
-:: Copy DLLs to game folder
-echo Copying d3d11.dll and dxgi.dll to: %GAME_PATH%
-copy /Y d3d11.dll "%GAME_PATH%" >nul
-copy /Y dxgi.dll "%GAME_PATH%" >nul
+:: Ask user for game directory
+set /p GAME_DIR=Enter the full path to your game folder (e.g. D:\Games\DMC4SE): 
+if not exist "!GAME_DIR!\" (
+    echo ❌ Invalid directory.
+    pause
+    exit /b
+)
 
-:: Create dxvk.conf with logging & HUD (optional)
-echo Creating dxvk.conf...
-(
-    echo dxvk.log = info
-    echo dxvk.hud = fps,version
-) > "%GAME_PATH%\dxvk.conf"
+echo.
+echo 🔧 Extracting DXVK...
+7z x "%DXVK_ARCHIVE%" -aoa >nul
+7z x "%DXVK_DIR%.tar" -aoa >nul
+
+:: Check if x64 DLLs exist
+if not exist "%DXVK_DIR%\x64\d3d11.dll" (
+    echo ❌ Extraction failed or DXVK structure is incorrect.
+    pause
+    exit /b
+)
+
+echo.
+echo 📁 Copying Vulkan DLLs to: !GAME_DIR!
+copy /Y "%DXVK_DIR%\x64\d3d11.dll" "!GAME_DIR!" >nul
+copy /Y "%DXVK_DIR%\x64\dxgi.dll" "!GAME_DIR!" >nul
+
+:: Optional dxvk.conf
+echo dxvk.hud = devinfo,fps > "!GAME_DIR!\dxvk.conf"
 
 echo.
 echo ✅ DXVK Vulkan wrapper installed successfully!
-echo You can now launch the game using Vulkan.
+echo You can now launch your game using Vulkan.
 pause
-exit
