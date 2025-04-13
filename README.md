@@ -23,7 +23,7 @@ This is a simple **batch script** that automates the process of wrapping any **D
 
 ## 📦 Prerequisites
 
-- [DXVK 2.6.1 Release `.tar.gz`](https://github.com/doitsujin/dxvk/releases/tag/v2.6.1) — place in the same folder as the script (file name: `dxvk-2.6.1.tar.gz`)
+- [DXVK 2.6.1`.tar.gz`](https://github.com/doitsujin/dxvk/releases/tag/v2.6.1) — place in the same folder as the script (file name: `dxvk-2.6.1.tar.gz`)
 - [7-Zip CLI](https://www.7-zip.org/) — must be installed or bundled (`7z.exe`)
 - Windows 10 or 11
 
