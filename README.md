@@ -1,4 +1,4 @@
-# 🎮 DXVK Vulkan Wrapper Automator for DMC4 SE (or Any D3D Game)
+# 🎮 DXVK Vulkan Wrapper for DMC4 SE (or Any D3D Game)
 
 This is a simple **batch script** that automates the process of wrapping any **Direct3D 10/11** game with **DXVK**, allowing it to run using the Vulkan backend. It’s particularly useful for fixing GPU-related crashes like:
 
