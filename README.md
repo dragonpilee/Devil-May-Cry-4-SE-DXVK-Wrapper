@@ -1,4 +1,4 @@
-# 🎮 DXVK Vulkan Wrapper for DMC4 SE (or Any D3D Game)
+# 🎮 DXVK Vulkan Wrapper Automator for DMC4 SE (or Any D3D Game)
 
 This is a simple **batch script** that automates the process of wrapping any **Direct3D 10/11** game with **DXVK**, allowing it to run using the Vulkan backend. It’s particularly useful for fixing GPU-related crashes like:
 
@@ -23,7 +23,7 @@ This is a simple **batch script** that automates the process of wrapping any **D
 
 ## 📦 Prerequisites
 
-- [DXVK 2.6.1`.tar.gz`](https://github.com/doitsujin/dxvk/releases/tag/v2.6.1) — place in the same folder as the script (file name: `dxvk-2.6.1.tar.gz`)
+- [DXVK 2.6.1 Release `.tar.gz`](https://github.com/doitsujin/dxvk/releases/tag/v2.6.1) — place in the same folder as the script (file name: `dxvk-2.6.1.tar.gz`)
 - [7-Zip CLI](https://www.7-zip.org/) — must be installed or bundled (`7z.exe`)
 - Windows 10 or 11
 
